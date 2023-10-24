@@ -1,18 +1,25 @@
 import styles from './Header.module.scss';
+import TituloComImagem from './TituloComImagem';
+import TituloSemImagem from './TituloSemImagem';
 
 export default function Header({ titulo, descricao, className = '', imagem}) {
   return (
-    <header className={`${styles.header} ${className}`}>
-      <div className={styles['header-texto']}>
-        <h1>{titulo}</h1>
-        <h2>{descricao}</h2>
-      </div>
-      <div className={styles['header-imagem']}>
-        <img
-          alt={titulo}
-          src={imagem}
-        />
-      </div>
+    <header className={`${styles.header}`}>
+      {titulo && !imagem &&
+      <TituloSemImagem 
+      titulo={titulo}
+      descricao={titulo}
+      />
+      }
+      {titulo && imagem &&
+      <TituloComImagem 
+      titulo={titulo}
+      descricao={titulo}
+      imagem={imagem}
+      className={className}
+      />
+      }
+     
     </header>
   )
 }
