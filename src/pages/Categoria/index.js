@@ -17,10 +17,15 @@ export default function Categoria() {
 
     //     }
     // });
-    const { categoria, itens } = useSelector(state => ({
-        categoria: state.categorias.find(categoria => categoria.id === nomeCategoria),
-        itens: state.itens.filter(item => item.categoria === nomeCategoria),
-    }));
+
+    const { categoria, itens } = useSelector(state => {
+        const regexp = new RegExp(state.busca, 'i'); //'i' significa que é um case insensitive
+
+        return {
+            categoria: state.categorias.find(categoria => categoria.id === nomeCategoria),
+            itens: state.itens.filter(item => item.categoria === nomeCategoria && item.titulo.match(regexp)),
+        }
+    });
 
 
     return (
@@ -32,8 +37,8 @@ export default function Categoria() {
             />
 
             <div className={styles.itens}>
-                {itens?.map(item =>(
-                   <Item  key={item.id}  {...item}/>
+                {itens?.map(item => (
+                    <Item key={item.id}  {...item} />
                 ))}
 
             </div>
