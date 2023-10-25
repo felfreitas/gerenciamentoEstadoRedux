@@ -60,7 +60,18 @@
 
 .icones {
   display: flex;
-  gap: 20px;
+  gap: 8px;
   grid-area: icones;
   margin-left: 30px;
+}
+.dot {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  padding: 2px;
+  background-color: #0e33d6;
+  border-radius: 50%;
+  color: #FFFFFF;
 }
