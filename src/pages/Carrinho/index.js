@@ -16,7 +16,7 @@ export default function Carrinho() {
         const carrinhoReduce = state.carrinho.reduce((itens, itemNoCarrinho) => {
             const item = state.itens.find(item => item.id === itemNoCarrinho.id);
             total += (item.preco * itemNoCarrinho.quantidade);
-            if(item.titulo.match(regexp)){
+            if (item.titulo.match(regexp)) {
 
                 itens.push({
                     ...item,
@@ -47,13 +47,15 @@ export default function Carrinho() {
                 </div>
 
 
+                {(total !== 0) &&
+                    <button
+                        className={styles.finalizar}
+                        onClick={() => dispatch(resetarCarrinho())}
+                    >
+                        Finalizar Compra
+                    </button>
 
-                <button
-                    className={styles.finalizar}
-                    onClick={() => dispatch(resetarCarrinho())}
-                >
-                    Finalizar Compra
-                </button>
+                }
 
             </div>
 

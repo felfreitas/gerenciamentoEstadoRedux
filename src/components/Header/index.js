@@ -14,7 +14,7 @@ export default function Header({ titulo, descricao, className = '', imagem}) {
       {titulo && imagem &&
       <TituloComImagem 
       titulo={titulo}
-      descricao={titulo}
+      descricao={descricao}
       imagem={imagem}
       className={className}
       />
